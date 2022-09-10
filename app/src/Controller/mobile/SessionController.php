@@ -25,11 +25,10 @@ class SessionController extends Essentials
         return $this->response(true,$response,'Successfully');
     }
 
-    // #[Route('/finish/{id}', name: 'private_session_finish', methods: ['PUT'])]
-    #[Route('/finish/{identifier}', name: 'private_session_finish', methods: ['PUT'])]
-    public function finish(string $identifier, SessionRepository $repository): JsonResponse
+    #[Route('/finish/{id}', name: 'private_session_finish', methods: ['PUT'])]
+    public function finish(string $id, SessionRepository $repository): JsonResponse
     {
-        $session = $repository->find(trim($identifier));
+        $session = $repository->find(trim($id));
         if(!$session){
             throw new NotFoundHttpException('Session not found');
         }

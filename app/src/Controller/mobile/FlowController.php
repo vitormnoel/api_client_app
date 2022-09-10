@@ -22,15 +22,15 @@ class FlowController extends Essentials
         return $this->response(true,$repository->findBy(['department' => trim($department)]),'List all flow');
     }
 
-    #[Route('/view/{identifier}', name: 'private_api_flow_view', methods: ['GET'])]
-    public function view(string $identifier, FlowRepository $repository): JsonResponse
+    #[Route('/view/{id}', name: 'private_api_flow_view', methods: ['GET'])]
+    public function view(string $id, FlowRepository $repository): JsonResponse
     {
-        return $this->response(true,$this->getFlow($identifier,$repository),'successfully');
+        return $this->response(true,$this->getFlow($id,$repository),'successfully');
     }
 
 
-    private function getFlow(string $identifier, FlowRepository $repository): Flow{
-        $flow = $repository->find(trim($identifier));
+    private function getFlow(string $id, FlowRepository $repository): Flow{
+        $flow = $repository->find(trim($id));
         if(!$flow) {
             throw new NotFoundHttpException('Flow not found');
         }

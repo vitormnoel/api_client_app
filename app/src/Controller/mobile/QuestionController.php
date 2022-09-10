@@ -32,10 +32,10 @@ class QuestionController extends Essentials
         return $this->response(true, $questions, 'Successfully');
     }
 
-    #[Route('/view/{identifier}', name: 'private_api_question_view', methods: ['GET'])]
-    public function view(string $identifier, QuestionRepository $repository): JsonResponse
+    #[Route('/view/{id}', name: 'private_api_question_view', methods: ['GET'])]
+    public function view(string $id, QuestionRepository $repository): JsonResponse
     {
-        $question = $repository->find($identifier);
+        $question = $repository->find($id);
 
         if(!$question) {
             return throw new NotFoundHttpException('Question not found');
