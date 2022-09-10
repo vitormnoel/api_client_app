@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "fc2028ae-cd6c-40f6-a044-fdc519227110",
+		"name": "Api. Area",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13699709"
+	},
+	"item": [
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token_api}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "session[flow]",
+									"value": "fb9aae64-ba6b-4e77-b4ef-8cd1e788159c",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_api}}session/create{{debug}}",
+							"host": [
+								"{{url_api}}session"
+							],
+							"path": [
+								"create{{debug}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finish Session",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url_api}}session/finish/a1f2ee8b-78d7-48aa-885c-334d6828ee74{{debug}}",
+							"host": [
+								"{{url_api}}session"
+							],
+							"path": [
+								"finish",
+								"a1f2ee8b-78d7-48aa-885c-334d6828ee74{{debug}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reply",
+			"item": [
+				{
+					"name": "Create reply boolean",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token_api}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "answer[reply]",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "answer[question]",
+									"value": "b7fcb224-651d-4a73-a367-0f65aefdcc1d",
+									"type": "text"
+								},
+								{
+									"key": "answer[session]",
+									"value": "123385b4-c30f-431f-81f3-0611d0c8fe26",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_api}}answer/reply{{debug}}",
+							"host": [
+								"{{url_api}}answer"
+							],
+							"path": [
+								"reply{{debug}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create reply Option",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "answer[reply]",
+									"value": "Aopi mesmo ",
+									"type": "text"
+								},
+								{
+									"key": "answer[question]",
+									"value": "ae81f9c6-1e09-4472-a269-79f237960bf3",
+									"type": "text"
+								},
+								{
+									"key": "answer[session]",
+									"value": "123385b4-c30f-431f-81f3-0611d0c8fe26",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_api}}answer/reply{{debug}}",
+							"host": [
+								"{{url_api}}answer"
+							],
+							"path": [
+								"reply{{debug}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create reply Average",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "answer[reply]",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "answer[question]",
+									"value": "8edfc0c7-6532-4bd4-acd5-e5ba0da95460",
+									"type": "text"
+								},
+								{
+									"key": "answer[session]",
+									"value": "123385b4-c30f-431f-81f3-0611d0c8fe26",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_api}}answer/reply{{debug}}",
+							"host": [
+								"{{url_api}}answer"
+							],
+							"path": [
+								"reply{{debug}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Create Token Access",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "identifier",
+									"value": "22080753460",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_api}}security/login{{debug}}",
+							"host": [
+								"{{url_api}}security"
+							],
+							"path": [
+								"login{{debug}}"
+							],
+							"query": [
+								{
+									"key": "identifier",
+									"value": "22080753460",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "bearer_token_api",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXBhcnRtZW50Ijp7ImlkIjoiOGRhMzFhNjktMzc4OC00MmNjLWJlM2ItNjQyODYzOTU0ODY0IiwibmFtZSI6InRlc3RlMyIsInNsdWciOiJ0ZXN0ZTMiLCJpZGVudGlmaWVyIjoiMjIwODA3NTM0NjAifX0.HZFDGpD2t03YZ9iq6uhuNR56wEi7geKf-j4n2JPbAWk"
+		}
+	]
+}

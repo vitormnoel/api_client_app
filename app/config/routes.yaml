@@ -1,0 +1,27 @@
+# ADMIN Controllers
+api_admin_controllers:
+  #    schemes: ['https']
+  resource: ../src/Controller/admin/
+  type: annotation
+  prefix: "/admin"
+  # host: "admin.{domain}"
+  # defaults:
+  #     domain: '%domain%'
+  # requirements:
+  #     domain: '%domain%'
+
+# APP Controllers
+api_app_controllers:
+  #    schemes: ['https']
+  resource: ../src/Controller/mobile/
+  type: annotation
+  prefix: "/api"
+  # host: "api.{domain}"
+  # defaults:
+  #     domain: '%domain%'
+  # requirements:
+  #     domain: '%domain%'
+
+kernel:
+  resource: ../src/Kernel.php
+  type: annotation
