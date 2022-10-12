@@ -21,11 +21,15 @@ class Session extends Entity
     #[ORM\Column]
     private ?bool $ended = null;
 
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $weekday = null;
+
     public function __construct()
     {
         parent::__construct();
         $this->answers = new ArrayCollection();
         $this->ended = false;
+        $this->weekday = strtolower(date("D"));
     }
 
     /**
@@ -89,5 +93,17 @@ class Session extends Entity
             'flow' => $this->flow,
             'department' => $this->flow->getDepartment()
         ];
+    }
+
+    public function getWeekday(): ?string
+    {
+        return $this->weekday;
+    }
+
+    public function setWeekday(?string $weekday): self
+    {
+        $this->weekday = $weekday;
+
+        return $this;
     }
 }

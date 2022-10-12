@@ -49,7 +49,7 @@ class SecurityController extends Essentials
         $user = $this->userRepository->getForEmail($response['email']);
 
         if(!$user) {
-            return $this->response(false,['message' => 'Invalid Credentials']);
+            return $this->response(false,['message' => 'Invalid Credentials'],'failed');
         }
         $user = $this->authentication($user,$response['password']);
 

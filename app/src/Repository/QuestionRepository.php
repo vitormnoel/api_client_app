@@ -27,6 +27,7 @@ class QuestionRepository extends ServiceEntityRepository
             ->where('q.flow = :flow')
             ->setParameter('flow', $flow)
             ->setCacheable(true)
+            ->orderBy('q.created_at','ASC')
             ->getQuery()
             ->getResult();
     }

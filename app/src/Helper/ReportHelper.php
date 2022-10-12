@@ -8,6 +8,25 @@ use App\Entity\QuestionAverage;
 
 class ReportHelper
 {
+
+    public static function groupRotation($report){
+        $data = [];
+        foreach ($report as $value){
+            $data[$value['shift']][] = $value;
+            unset($value['shift']);
+        }
+        return $data;
+    }
+    public static function groupWeekDay(array $report):array
+    {
+        $data = [];
+        foreach ($report as $value){
+            $data[$value['weekday']][] = $value;
+            unset($value['weekday']);
+        }
+        return $data;
+    }
+
     public static function groupQuestion(array $report):array
     {
         $data = [];

@@ -27,7 +27,7 @@ class QuestionController extends Essentials
             return throw new NotFoundHttpException('Question not found');
         }
 
-        $questions = $this->orderQuestion($questions);
+//        $questions = $this->orderQuestion($questions);
 
         return $this->response(true, $questions, 'Successfully');
     }
